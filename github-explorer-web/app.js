@@ -1,20 +1,17 @@
 (function(){
 
-var path = require('path');
-var express = require('express');
-var app = express();
-require('jquery');
+    var express = require('express');
 
-var port = 3000;
+    var application = express();
 
-app.use(express.static(path.join(__dirname, 'node_modules')));
+    application.get('/', function(request, response){
+        response.send('GitHub Explorer');
+    });
 
-app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname, 'views/index.html'));
-});
+    var port = 3000;
 
-app.listen(port, function(){
-    console.log('listerning on port : ' + port);
-});
+    var server = application.listen(port, function(){
+        console.log('listening on port ' + port);
+    });
 
 })();
