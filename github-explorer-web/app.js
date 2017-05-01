@@ -5,7 +5,7 @@
     var application = express();
 
     application.get('/', function(request, response){
-        response.send('GitHub Explorer');
+        response.render('banks');
     });
 
     var port = 3000;
